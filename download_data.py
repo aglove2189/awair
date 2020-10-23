@@ -13,9 +13,9 @@ def read_csv(fp):
 
 
 if __name__ == "__main__":
-    test_api = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiRFVNTVktSE9CQllJU1QifQ.hzjhIpGljqCZ8vCrOr89POy_ENDPYQXsnzGslP01krI"
+    from config import api
 
-    awair = Awair(test_api)
+    awair = Awair(api)
 
     os.makedirs("data", exist_ok=True)
     today = datetime.date.today()
@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     while to_date < today:
         fn = from_date.strftime("%m.%d.%Y")
-        fp = f"data/{fn}.csv"
+        fp = f"data/raw/{fn}.csv"
         if os.path.exists(fp):
             pass
         else:
